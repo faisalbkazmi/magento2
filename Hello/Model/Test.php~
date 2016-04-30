@@ -2,7 +2,7 @@
 namespace Excellence\Hello\Model;
 class Test extends \Magento\Framework\Model\AbstractModel implements TestInterface, \Magento\Framework\DataObject\IdentityInterface
 {
-    const CACHE_TAG = 'agent_info';
+    const CACHE_TAG = 'excellence_hello_test';
 
     protected function _construct()
     {

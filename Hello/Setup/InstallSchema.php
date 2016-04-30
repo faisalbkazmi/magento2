@@ -1,66 +1,44 @@
 <?php
- 
 namespace Excellence\Hello\Setup;
- 
-use Magento\Framework\Setup\InstallSchemaInterface;
-use Magento\Framework\Setup\ModuleContextInterface;
-use Magento\Framework\Setup\SchemaSetupInterface;
-use Magento\Framework\DB\Ddl\Table;
- 
-class InstallSchema implements InstallSchemaInterface
+class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
 {
-    public function install(SchemaSetupInterface $setup, ModuleContextInterface $context)
+    public function install(\Magento\Framework\Setup\SchemaSetupInterface $setup, \Magento\Framework\Setup\ModuleContextInterface $context)
     {
         $installer = $setup;
         $installer->startSetup();
- 
-        // Get tutorial_simplenews table
-        $tableName = $installer->getTable('agent_info');
-        // Check if the table already exists
-        if ($installer->getConnection()->isTableExists($tableName) != true) {
-            // Create tutorial_simplenews table
-            $table = $installer->getConnection()
-                ->newTable($tableName)
-                ->addColumn(
-                    'id',
-                    Table::TYPE_INTEGER,
-                    null,
-                    [
-                        'identity' => true,
-                        'unsigned' => true,
-                        'nullable' => false,
-                        'primary' => true
-                    ],
-                    'ID'
-                )
-                ->addColumn(
-                    'name',
-                    Table::TYPE_TEXT,
-                    null,
-                    ['nullable' => false, 'default' => ''],
-                    'Name'
-                )
-                ->addColumn(
-                    'email',
-                    Table::TYPE_TEXT,
-                    null,
-                    ['nullable' => false, 'default' => ''],
-                    'Email'
-                )
-                ->addColumn(
-                    'message',
-                    Table::TYPE_TEXT,
-                    null,
-                    ['nullable' => false, 'default' => ''],
-                    'Message'
- 
-                )
-                ->setComment('News Table')
-                ->setOption('type', 'InnoDB')
-                ->setOption('charset', 'utf8');
-            $installer->getConnection()->createTable($table);
-        }
- 
-        $installer->endSetup();
+        //START: install stuff
+        //END:   install stuff
+        
+//START table setup
+$table = $installer->getConnection()->newTable(
+            $installer->getTable('excellence_hello_test')
+    )->addColumn(
+            'id',
+            \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+            null,
+            [ 'identity' => true, 'nullable' => false, 'primary' => true, 'unsigned' => true, ],
+            'Entity ID'
+        )->addColumn(
+            'name',
+            \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+            255,
+            [ 'nullable' => false, ],
+            'Demo Name'
+        )->addColumn(
+            'message',
+            \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+            255,
+            [ 'nullable' => false, ],
+            'Demo Message'
+            )->addColumn(
+            'email',
+            \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+            255,
+            [ 'nullable' => false, ],
+            'Demo Email'
+            );
+$installer->getConnection()->createTable($table);
+//END   table setup
+$installer->endSetup();
     }
 }
