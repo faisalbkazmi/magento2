@@ -13,4 +13,20 @@ class Test extends \Magento\Framework\Model\AbstractModel implements TestInterfa
     {
         return [self::CACHE_TAG . '_' . $this->getId()];
     }
+    public function deleteById($id){
+        if($id){
+            return $this->load($id)->delete();
+        }
+    }
+    public function getDataById($id){
+        if($id){
+            return $this->load($id)->getData();
+        }
+    }
+    public function saveEdit($data){
+        $model = $this->load($data['id']);
+        $model->setTitle($data['title']);
+        $model->setIsActive($data['status']);
+        return $model->save();
+    }
 }
