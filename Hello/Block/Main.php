@@ -17,17 +17,17 @@ class Main extends \Magento\Framework\View\Element\Template
           $data=$this->testFactory->create();
           $collectionData = $data->getCollection()->getData();
          
-    $this->setTestModel($collectionData);
+    $this->setCollectModel($collectionData);
     }
     public function getDeleteUrl($id)
     {
-        $deleteUrl = "excellence/index/delete/id/".$id;
-        return $this->_urlBuilder->getUrl($deleteUrl);
+       return $this->_urlBuilder->getUrl("excellence/index/delete/", array('id' => $id));
     }
+
     public function getEditUrl($id)
     {
-        $editUrl = "excellence/index/edit/id/".$id;
-        return $this->_urlBuilder->getUrl($editUrl);
+
+     return $this->_urlBuilder->getUrl("excellence/index/edit/", array('id' => $id));
     }
     public function getAddUrl()
     {

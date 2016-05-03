@@ -6,11 +6,7 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
     {
         $installer = $setup;
         $installer->startSetup();
-        //START: install stuff
-        //END:   install stuff
-        
-//START table setup
-$table = $installer->getConnection()->newTable(
+      $table = $installer->getConnection()->newTable(
             $installer->getTable('excellence_hello_test')
     )->addColumn(
             'id',
@@ -38,7 +34,6 @@ $table = $installer->getConnection()->newTable(
             'Demo Email'
             );
 $installer->getConnection()->createTable($table);
-//END   table setup
 $installer->endSetup();
     }
 }

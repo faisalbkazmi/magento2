@@ -1,6 +1,5 @@
 <?php 
 $data = $block->getRowData();
-extract($data);
 ?>
 <div class="block block-customer-login">
     <div class="block-title">
@@ -13,26 +12,26 @@ extract($data);
                 <div class="field id required">
                     <label class="label" for="id"><span><?php echo __('Id') ?></span></label>
                     <div class="control">
-                        <input name="data[id]" id="id" type="text" class="input-text" title="<?php echo __('Id') ?>" value="<?php echo $id; ?>">
+                        <input name="data[id]" id="id" type="text" class="input-text" title="<?php echo __('Id') ?>" value="<?php echo $data['id']; ?>">
                     </div>
                 </div>
 
                 <div class="field title required">
                     <label class="label" for="name"><span><?php echo __('Name') ?></span></label>
                     <div class="control">
-                        <input name="data[name]" id="name" type="text" class="input-text" title="<?php /* @escapeNotVerified */ echo __('Name') ?>" data-validate="{required:true}" value="<?php echo $name; ?>">
+                        <input name="data[name]" id="name" type="text" class="input-text" title="<?php /* @escapeNotVerified */ echo __('Name') ?>" data-validate="{required:true}" value="<?php echo $data['name']; ?>">
                     </div>
                 </div>
                 <div class="field title required">
                     <label class="label" for="message"><span><?php echo __('Message') ?></span></label>
                     <div class="control">
-                        <input name="data[message]" id="message" type="text" class="input-text" title="<?php echo __('message') ?>" data-validate="{required:true}" value="<?php echo $message; ?>">
+                        <input name="data[message]" id="message" type="text" class="input-text" title="<?php echo __('message') ?>" data-validate="{required:true}" value="<?php echo $data['message']; ?>">
                     </div>
                 </div>
                 <div class="field title required">
                     <label class="label" for="email"><span><?php echo __('Email') ?></span></label>
                     <div class="control">
-                        <input name="data[email]" id="email" type="text" class="input-text" title="<?php echo __('Email') ?>" data-validate="{required:true}" value="<?php echo $email; ?>">
+                        <input name="data[email]" id="email" type="text" class="input-text" title="<?php echo __('Email') ?>" data-validate="{required:true}" value="<?php echo $data['email']; ?>">
                     </div>
                 </div>
 
