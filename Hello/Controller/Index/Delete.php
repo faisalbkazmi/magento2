@@ -1,7 +1,7 @@
 <?php
 namespace Excellence\Hello\Controller\Index;
 use Magento\Framework\Controller\ResultFactory; 
- 
+
 class Delete extends \Magento\Framework\App\Action\Action
 {
     protected $_testFactory;
@@ -16,15 +16,15 @@ class Delete extends \Magento\Framework\App\Action\Action
         $this->_testFactory = $testFactory;
         return parent::__construct($context);
     }
-     
+    
     public function execute()
     {
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         $test = $this->_testFactory->create();
         $id = $this->getRequest()->getParam('id');
         if($test->deleteById($id)){
-                  $resultRedirect->setUrl($this->_redirect->getRefererUrl());
-            return $resultRedirect;
-        }
-    }
+          $resultRedirect->setUrl($this->_redirect->getRefererUrl());
+          return $resultRedirect;
+      }
+  }
 }

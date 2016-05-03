@@ -16,8 +16,7 @@ class Main extends \Magento\Framework\View\Element\Template
     {
           $data=$this->testFactory->create();
           $collectionData = $data->getCollection()->getData();
-         // print_r($collectionData);
-
+         
     $this->setTestModel($collectionData);
     }
     public function getDeleteUrl($id)
@@ -30,9 +29,8 @@ class Main extends \Magento\Framework\View\Element\Template
         $editUrl = "excellence/index/edit/id/".$id;
         return $this->_urlBuilder->getUrl($editUrl);
     }
-    public function getBackUrl($id)
+    public function getAddUrl()
     {
-        $backUrl = "excellence/index/edit/id/".$id;
-        return $this->_urlBuilder->getUrl($backUrl);
+        return $this->_urlBuilder->getUrl("excellence/index/add");
     }
 }

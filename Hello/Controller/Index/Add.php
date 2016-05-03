@@ -2,7 +2,7 @@
 namespace Excellence\Hello\Controller\Index;
  
  
-class Edit extends \Magento\Framework\App\Action\Action
+class Add extends \Magento\Framework\App\Action\Action
 {
     protected $resultPageFactory;
     public function __construct(
@@ -22,8 +22,6 @@ class Edit extends \Magento\Framework\App\Action\Action
         if(isset($post['submit'])) {
             $test->saveEdit($post);
         }
-        
         return $this->resultPageFactory->create(); 
     } 
-    
 }

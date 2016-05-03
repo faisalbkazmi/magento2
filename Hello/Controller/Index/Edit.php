@@ -1,7 +1,5 @@
 <?php
 namespace Excellence\Hello\Controller\Index;
- 
- 
 class Edit extends \Magento\Framework\App\Action\Action
 {
     protected $resultPageFactory;
@@ -14,7 +12,7 @@ class Edit extends \Magento\Framework\App\Action\Action
         $this->resultPageFactory = $resultPageFactory;       
         return parent::__construct($context);
     }
-     
+    
     public function execute()
     {
         $test = $this->_testFactory->create();

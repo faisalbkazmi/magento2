@@ -1,9 +1,10 @@
 <?php
 namespace Excellence\Hello\Block;
   
-class Main extends \Magento\Framework\View\Element\Template
+class Add extends \Magento\Framework\View\Element\Template
 {   
     protected $_testFactory;
+
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         \Excellence\Hello\Model\TestFactory $testFactory
@@ -14,12 +15,15 @@ class Main extends \Magento\Framework\View\Element\Template
     }
     protected function _prepareLayout()
     {
-        print_r("hello");
-    $test = $this->_testFactory->create();
-        $test->setName('Test name');
-        $test->setMessage('Test message');
-        $test->setEmail('Test email');
-        $test->save();
-        $this->setTestModel($test);
+        
+        $test = $this->_testFactory->create();
+
+        $collectionData = $test->getCollection()->getData();
+       
+        $this->setTestModel($collectionData);
+    }
+    public function getListUrl()
+    {
+        return $this->_urlBuilder->getUrl("excellence/Hello/World");
     }
 }

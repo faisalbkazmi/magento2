@@ -1,7 +1,5 @@
 <?php
 namespace Excellence\Hello\Controller\Index;
- 
- 
 class Index extends \Magento\Framework\App\Action\Action
 {
     protected $resultPageFactory;
@@ -12,7 +10,7 @@ class Index extends \Magento\Framework\App\Action\Action
         $this->resultPageFactory = $resultPageFactory;       
         return parent::__construct($context);
     }
-     
+
     public function execute()
     {
         return $this->resultPageFactory->create(); 
