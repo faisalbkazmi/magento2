@@ -14,10 +14,12 @@ class Main extends \Magento\Framework\View\Element\Template
     }
     protected function _prepareLayout()
     {
+
           $data=$this->testFactory->create();
-          $collectionData = $data->getCollection()->getData();
-         
-    $this->setCollectModel($collectionData);
+          $collectionData = $data->getCollection()->setOrder('id', 'DESC');
+          
+          $this->setCollectModel($collectionData);
+
     }
     public function getDeleteUrl($id)
     {

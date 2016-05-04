@@ -23,9 +23,9 @@ class Test extends \Magento\Framework\Model\AbstractModel implements TestInterfa
             return $this->load($id)->getData();
         }
     }
-    public function saveEdit($data)
+    public function saveEdit($data,$nid)
     {
-        $model = $this->load($data['id']);
+        $model = $this->load($nid);
         $model->setName($data['name']);
         $model->setMessage($data['message']);
         $model->setEmail($data['email']);

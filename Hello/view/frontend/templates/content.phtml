@@ -1,12 +1,23 @@
 <?php $collectionData = $block->getCollectModel(); 
- ?>
-<table>
-    <tr>
-        <th> Id </th>
-        <th> Name </th>
-        <th> Message </th>
-        <th> email </th>
-    </tr>
+?>
+   <form class="form"
+
+   action="<?php echo $block->getAddUrl()?>">
+   <table class="data table table-order-items history" id="my-orders-table">
+
+   <div class="table-wrapper orders-history">
+
+
+    <thead>
+        <tr>
+            <th> Id </th>
+            <th> Name </th>
+            <th> Message </th>
+            <th> email </th>
+            <th> Delete Item</th>
+            <th> Edit</th>
+        </tr>
+    </thead>
     <tbody>
         <?php foreach ($collectionData as $item) : ?>
         <tr>
@@ -33,11 +44,14 @@
                 </a>
             </td>
         </tr>
-        <?php endforeach; ?>
-    </tbody>
+    <?php endforeach; ?>
+</tbody>
 </table>
-<div>
-    <a href="<?php echo $block->getAddUrl($item['id']); ?>">
-        <?php echo __('ADD DATA') ?>
-    </a>
+
+<div class="actions-toolbar">
+    <div class="primary"><input type="submit" class="action submit primary" name="" id="send2" value="<?php echo __('Add Item') ?>"></div>
+
 </div>
+</div>
+</form>
+
