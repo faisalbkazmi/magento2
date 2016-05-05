@@ -31,4 +31,5 @@ class Test extends \Magento\Framework\Model\AbstractModel implements TestInterfa
         $model->setEmail($data['email']);
         return $model->save();
     }
+    
 }

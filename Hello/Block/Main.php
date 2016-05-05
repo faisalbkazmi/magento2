@@ -21,6 +21,10 @@ class Main extends \Magento\Framework\View\Element\Template
           $this->setCollectModel($collectionData);
 
     }
+    public function getSearchUrl($id)
+    {
+       return $this->_urlBuilder->getUrl("excellence/index/search/");
+    }
     public function getDeleteUrl($id)
     {
        return $this->_urlBuilder->getUrl("excellence/index/delete/", array('id' => $id));
