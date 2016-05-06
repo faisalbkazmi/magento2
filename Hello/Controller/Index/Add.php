@@ -21,10 +21,10 @@ class Add extends \Magento\Framework\App\Action\Action
     public function execute()
     {
         $id = $this->getRequest()->getParam('id');
-        $test = $this->_testFactory->create();
+        $data = $this->_testFactory->create();
         $post = $this->getRequest()->getPost('data');
         if(isset($post['submit'])) {
-            $test->saveEdit($post,$id);
+            $data->saveEdit($post,$id);
             $this->messageManager->addSuccess( __('Item Added') );
             $resultRedirect = $this->resultRedirectFactory->create();
             $resultRedirect->setPath('excellence/Hello/World');

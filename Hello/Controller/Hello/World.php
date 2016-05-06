@@ -20,9 +20,7 @@ class World extends \Magento\Framework\App\Action\Action
     public function execute()
     {
         $post = $this->getRequest()->getPost('data');
-        if(isset($post)){
-            $this->registry->register('search', $post['srch']);
-        }
+        print_r($post); 
         return $this->resultPageFactory->create(); 
     } 
 }

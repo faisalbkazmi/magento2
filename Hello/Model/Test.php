@@ -31,5 +31,7 @@ class Test extends \Magento\Framework\Model\AbstractModel implements TestInterfa
         $model->setEmail($data['email']);
         return $model->save();
     }
-    
+    public function 
+    $post = $this->getRequest()->getPost('data');
+        print_r($post); 
 }
