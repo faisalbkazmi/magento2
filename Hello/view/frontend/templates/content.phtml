@@ -1,5 +1,14 @@
 <?php $collectionData = $block->getCollectModel(); 
 ?>
+
+<div id="tfheader">
+    <form class="form" action="" method="post" id="search-form" >
+        <input name="data[srch]" id="srch" type="text" class="input-text" title="<?php echo __('Search') ?>" data-validate="{required:true}" value="<?php if(!empty($block->getSearchTerm())){ echo $block->getSearchTerm(); } ?>" style="width: 250px !important; height: 35px !important;" placeholder="Search Here" >
+        
+    </form>
+<div class="tfclear"></div>
+</div>
+
    <form class="form"
 
    action="<?php echo $block->getAddUrl()?>">
@@ -54,11 +63,4 @@
 </div>
 </div>
 </form>
-<form>
-<div id="tfheader">
-    <form id="tfnewsearch" method="get" action="">
-            <input type="text" class="tftextinput" name="data[id]" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton">
-    </form>
-  <div class="tfclear"></div>
-  </div>
-</form>
+
