@@ -1,17 +1,20 @@
 <?php
 namespace Excellence\Hello\Block;
+ use Magento\Framework\Controller\ResultFactory;
   
 class Main extends \Magento\Framework\View\Element\Template
 {   
     protected $registry;
     protected $_testFactory;
     public function __construct(
+       \Magento\Framework\Message\ManagerInterface $messageManager,
         \Magento\Framework\View\Element\Template\Context $context,
         \Excellence\Hello\Model\TestFactory $testFactory,
         \Magento\Framework\Registry $registry
     )
     { 
         $this->testFactory=$testFactory;
+        $this->messageManager=$messageManager;
          $this->registry = $registry;
         parent::__construct($context);
     }
@@ -31,6 +34,10 @@ class Main extends \Magento\Framework\View\Element\Template
                                 )
                             )
                     ->setOrder('id', 'DESC');
+          if(count($collectionData)<=0)
+          {
+             $this->messageManager->addSuccess( __('NO record found') );
+          }
           }
           else{
             $collectionData = $data->getCollection()->setOrder('id', 'DESC');
