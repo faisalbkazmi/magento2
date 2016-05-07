@@ -4,6 +4,6 @@
         <block
             template="edit.phtml"
             class="Excellence\Hello\Block\Edit"
-            name="excellence_test"/>
+            name="excellence_data"/>
     </referenceContainer>
 </page>

@@ -7,13 +7,6 @@
             <fieldset class="fieldset" data-hasrequired="<?php echo __('* Required Fields') ?>">
 
                 <div class="field title required">
-                    <label class="label" for="title"><span><?php echo __('Id') ?></span></label>
-                    <div class="control">
-                        <input name="data[id]" id="id" type="text" class="input-text" title="<?php echo __('Id') ?>" data-validate="{required:true}">
-                    </div>
-                </div>
-
-                <div class="field title required">
                     <label class="label" for="title"><span><?php echo __('Name') ?></span></label>
                     <div class="control">
                         <input name="data[name]" id="name" type="text" class="input-text" title="<?php echo __('Name') ?>" data-validate="{required:true}">
@@ -28,13 +21,13 @@
                 <div class="field title required">
                     <label class="label" for="title"><span><?php echo __('Email') ?></span></label>
                     <div class="control">
-                        <input name="data[email]" id="title" type="text" class="input-text" title="<?php echo __('Email') ?>" data-validate="{required:true}">
+                        <input name="data[email]" id="title" type="email" class="input-text" title="<?php echo __('Email') ?>" data-validate="{required:true}">
                     </div>
                 </div>
 
                 <div class="actions-toolbar">
                     <div class="primary"><input type="submit" class="action login primary" name="data[submit]" id="send2" value="<?php echo __('Save') ?>"></div>
-                    <div class="secondary"><a class="action remind" href="<?php echo $block->getListUrl(); ?>"><span><?php echo __('Return back') ?></span></a></div>
+
                 </div>
             </fieldset>
         </form>

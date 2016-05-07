@@ -16,9 +16,9 @@ class Add extends \Magento\Framework\View\Element\Template
     protected function _prepareLayout()
     {
         
-        $test = $this->_testFactory->create();
+        $data = $this->_testFactory->create();
 
-        $collectionData = $test->getCollection()->getData();
+        $collectionData = $data->getCollection();
        
         $this->setTestModel($collectionData);
     }

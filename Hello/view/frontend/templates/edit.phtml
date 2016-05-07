@@ -9,13 +9,6 @@ $data = $block->getRowData();
         <form class="form" action="" method="post" id="edit-form" data-mage-init='{"validation":{}}'>
             <fieldset class="fieldset" data-hasrequired="<?php echo __('* Required Fields') ?>">
 
-                <div class="field id required">
-                    <label class="label" for="id"><span><?php echo __('Id') ?></span></label>
-                    <div class="control">
-                        <input name="data[id]" id="id" type="text" class="input-text" title="<?php echo __('Id') ?>" value="<?php echo $data['id']; ?>">
-                    </div>
-                </div>
-
                 <div class="field title required">
                     <label class="label" for="name"><span><?php echo __('Name') ?></span></label>
                     <div class="control">
@@ -31,17 +24,13 @@ $data = $block->getRowData();
                 <div class="field title required">
                     <label class="label" for="email"><span><?php echo __('Email') ?></span></label>
                     <div class="control">
-                        <input name="data[email]" id="email" type="text" class="input-text" title="<?php echo __('Email') ?>" data-validate="{required:true}" value="<?php echo $data['email']; ?>">
+                        <input name="data[email]" id="email" type="email" class="input-text" title="<?php echo __('Email') ?>" data-validate="{required:true}" value="<?php echo $data['email']; ?>">
                     </div>
                 </div>
 
                 <div class="actions-toolbar">
                     <div class="primary"><input type="submit" class="action login primary" name="data[submit]" id="send2" value="<?php echo __('Save') ?>"></div>
-                    <div class="secondary">
-                        <a class="action remind" href="<?php echo $block->getListUrl(); ?>">
-                            <span><?php echo __('Return Back') ?></span>
-                        </a>
-                    </div>
+
                 </div>
 
             </fieldset>

@@ -15,9 +15,9 @@ class Edit extends \Magento\Framework\View\Element\Template
     }
     protected function _prepareLayout()
     {
-        $test = $this->_testFactory->create();
+        $data = $this->_testFactory->create();
         $id = $this->getRequest()->getParam('id');
-        $collectionData = $test->getDataById($id);
+        $collectionData = $data->getDataById($id);
         $this->setRowData($collectionData);
     }
     public function getListUrl()
