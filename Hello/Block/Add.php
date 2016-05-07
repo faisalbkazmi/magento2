@@ -18,7 +18,7 @@ class Add extends \Magento\Framework\View\Element\Template
         
         $data = $this->_testFactory->create();
 
-        $collectionData = $data->getCollection()->getData();
+        $collectionData = $data->getCollection();
        
         $this->setTestModel($collectionData);
     }

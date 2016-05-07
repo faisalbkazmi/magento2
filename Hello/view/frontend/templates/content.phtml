@@ -1,10 +1,10 @@
 <?php 
-    $collectionData = $block->getCollectModel()->getData(); 
+    $collectionData = $block->getCollectModel();
 ?>
 
 <div id="tfheader">
     <form class="form" action="" method="post" id="search-form">
-        <input name="data[srch]" id="srch" type="text" class="input-text" title="<?php echo __('Search') ?>" data-validate="{required:true}" value="<?php if(!empty($block->getSearchTerm())){ echo $block->getSearchTerm(); } ?>" style="width: 250px !important; height: 35px !important;" placeholder="Search Here" required>
+        <input name="data[srch]" id="srch" type="text" class="input-text" title="<?php echo __('Search') ?>" data-validate="{required:true}" value="<?php if(!empty($block->getSearchTerm())){ echo $block->getSearchTerm(); } ?>" style="width: 250px !important; height: 35px !important;" placeholder="<?php echo __('Search Here'); ?>" required>
     </form>
     <div class="tfclear"></div>
 </div>
