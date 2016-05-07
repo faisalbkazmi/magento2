@@ -4,6 +4,6 @@
         <block
             template="add.phtml"
             class="Excellence\Hello\Block\Add"
-            name="excellence_form"/>
+            name="excellence_data"/>
     </referenceContainer>
 </page>

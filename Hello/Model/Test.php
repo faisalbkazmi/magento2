@@ -31,7 +31,29 @@ class Test extends \Magento\Framework\Model\AbstractModel implements TestInterfa
         $model->setEmail($data['email']);
         return $model->save();
     }
-    public function 
-    $post = $this->getRequest()->getPost('data');
-        print_r($post); 
+  public function searchData($srch)
+    {
+       
+        
+        if(!empty($srch)){
+            $data = $this->getCollection()
+                        ->addFieldToFilter(
+                                array('name', 'message','email'),
+                                array(
+                                    array('like'=>'%'.$srch.'%'), 
+                                    array('like'=>'%'.$srch.'%'),
+                                    array('like'=>'%'.$srch.'%')
+                                )
+                            )
+                        ->setOrder('id', 'DESC');
+            return $data;
+              
+              
+        }
+    }
+    public function getTableData()
+    {
+        return $this->getCollection()->setOrder('id', 'DESC');
+    }
+
 }

@@ -9,7 +9,7 @@ $data = $block->getRowData();
         <form class="form" action="" method="post" id="edit-form" data-mage-init='{"validation":{}}'>
             <fieldset class="fieldset" data-hasrequired="<?php echo __('* Required Fields') ?>">
 
-                  <div class="field title required">
+                <div class="field title required">
                     <label class="label" for="name"><span><?php echo __('Name') ?></span></label>
                     <div class="control">
                         <input name="data[name]" id="name" type="text" class="input-text" title="<?php /* @escapeNotVerified */ echo __('Name') ?>" data-validate="{required:true}" value="<?php echo $data['name']; ?>">
@@ -30,7 +30,7 @@ $data = $block->getRowData();
 
                 <div class="actions-toolbar">
                     <div class="primary"><input type="submit" class="action login primary" name="data[submit]" id="send2" value="<?php echo __('Save') ?>"></div>
-                    
+
                 </div>
 
             </fieldset>
