@@ -8,12 +8,15 @@ class Main extends \Magento\Framework\View\Element\Template
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         \Excellence\Hello\Model\TestFactory $testFactory,
-        \Magento\Framework\Registry $registry
-    )
+        \Magento\Framework\Registry $registry,
+        array $data=[])
+     
     { 
         $this->testFactory=$testFactory;
          $this->registry = $registry;
-        parent::__construct($context);
+        parent::__construct($context,$data);
+        $Collection = $this->_testFactory->create()->joinData();
+        print_r($Collection); die();
     }
     protected function _prepareLayout()
     {
@@ -48,4 +51,16 @@ class Main extends \Magento\Framework\View\Element\Template
     {
         return $this->_urlBuilder->getUrl("excellence/index/add");
     }
+
+    // public function joinData()
+    // {
+        
+    //     $data = $this->_testFactory->create();
+
+    //     $collectionData = $data->();
+       
+    //     $this->setTestModel($collectionData);
+
+    // }
+
 }

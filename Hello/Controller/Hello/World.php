@@ -11,9 +11,9 @@ class World extends \Magento\Framework\App\Action\Action
         \Magento\Framework\App\Action\Context $context,
         \Excellence\Hello\Model\TestFactory $testFactory,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory,
-        \Magento\Framework\Registry $registry
+        \Magento\Framework\Registry $registry)
 
-        )
+        
     {
         $this->resultPageFactory = $resultPageFactory;  
         $this->registry = $registry;     
@@ -34,6 +34,7 @@ class World extends \Magento\Framework\App\Action\Action
             $this->registry->register('tableData', $tableData); 
         }
         return $this->resultPageFactory->create(); 
-    } 
+    }
+     
 
 }

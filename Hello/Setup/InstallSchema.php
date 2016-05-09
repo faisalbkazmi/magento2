@@ -6,21 +6,21 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
     {
         $installer = $setup;
         $installer->startSetup();
-      $table = $installer->getConnection()->newTable(
+        $table = $installer->getConnection()->newTable(
             $installer->getTable('excellence_hello_test')
-    )->addColumn(
+            )->addColumn(
             'id',
             \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
             null,
             [ 'identity' => true, 'nullable' => false, 'primary' => true, 'unsigned' => true, ],
             'Entity ID'
-        )->addColumn(
+            )->addColumn(
             'name',
             \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
             255,
             [ 'nullable' => false, ],
             'Demo Name'
-        )->addColumn(
+            )->addColumn(
             'message',
             \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
             255,
@@ -33,7 +33,27 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
             [ 'nullable' => false, ],
             'Demo Email'
             );
-$installer->getConnection()->createTable($table);
-$installer->endSetup();
+
+            $installer->getConnection()->createTable($table);
+            
+            
+            $table = $installer->getConnection()->newTable(
+            $installer->getTable('excellence_hello_tbl')
+            )->addColumn(
+            'id',
+            \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+            null,
+            [ 'nullable' => false, ],
+            'Entity ID'
+            )->addColumn(
+            'address',
+            \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+            255,
+            [ 'nullable' => false, ],
+            'Demo Address'
+            );
+            $installer->getConnection()->createTable($table);
+            $installer->endSetup();
     }
 }
+

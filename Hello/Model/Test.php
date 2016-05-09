@@ -33,8 +33,6 @@ class Test extends \Magento\Framework\Model\AbstractModel implements TestInterfa
     }
   public function searchData($srch)
     {
-       
-        
         if(!empty($srch)){
             $data = $this->getCollection()
                         ->addFieldToFilter(
@@ -56,4 +54,10 @@ class Test extends \Magento\Framework\Model\AbstractModel implements TestInterfa
         return $this->getCollection()->setOrder('id', 'DESC');
     }
 
+    public function joinData()
+     {
+
+         $data=$this->getResource()->joinUs();
+         return $data;
+     }
 }
