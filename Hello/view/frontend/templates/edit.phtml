@@ -1,5 +1,8 @@
 <?php 
 $data = $block->getRowData();
+$data1= $block->getRowAddress();
+// print_r($data); die();
+
 ?>
 <div class="block block-customer-login">
     <div class="block-title">
@@ -15,6 +18,13 @@ $data = $block->getRowData();
                         <input name="data[name]" id="name" type="text" class="input-text" title="<?php /* @escapeNotVerified */ echo __('Name') ?>" data-validate="{required:true}" value="<?php echo $data['name']; ?>">
                     </div>
                 </div>
+                <div class="field title required">
+                    <label class="label" for="address"><span><?php echo __('Address') ?></span></label>
+                    <div class="control">
+                        <input name="data[Address]" id="address" type="text" class="input-text" title="<?php /* @escapeNotVerified */ echo __('Address') ?>" data-validate="{required:true}" value="<?php echo $data1['address']; ?>">
+                    </div>
+                </div>
+
                 <div class="field title required">
                     <label class="label" for="message"><span><?php echo __('Message') ?></span></label>
                     <div class="control">

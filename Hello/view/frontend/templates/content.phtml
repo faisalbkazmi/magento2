@@ -1,5 +1,7 @@
 <?php 
     $collectionData = $block->getCollectModel();
+    $collectionData1= $block->getCollectModel1();
+      // print_r($collectionData); die();
 ?>
 
 <div id="tfheader">
@@ -19,8 +21,9 @@
                 <tr>
                     <th> Id </th>
                     <th> Name </th>
+                    <th> Address</th>
                     <th> Message </th>
-                    <th> email </th>
+                    <th> Email </th>
                     <th> Delete Item</th>
                     <th> Edit</th>
                 </tr>
@@ -33,6 +36,9 @@
                     </td>
                     <td>
                         <?php echo $item['name']; ?>
+                    </td>
+                    <td>
+                        <?php echo $item['address']; ?>
                     </td>
                     <td>
                         <?php echo $item['message']; ?>

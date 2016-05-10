@@ -38,7 +38,7 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
             
             
             $table = $installer->getConnection()->newTable(
-            $installer->getTable('excellence_hello_test1')
+            $installer->getTable('excellence_hello_tbl')
             )->addColumn(
             'id',
             \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
@@ -53,8 +53,7 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
             'Demo Address'
             );
             $installer->getConnection()->createTable($table);
-            
-$installer->endSetup();
+            $installer->endSetup();
     }
 }
 
