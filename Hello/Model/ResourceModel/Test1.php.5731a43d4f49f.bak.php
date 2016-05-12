@@ -1,10 +1,10 @@
 <?php
 namespace Excellence\Hello\Model\ResourceModel;
-class Test extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
+class Test1 extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
   protected function _construct()
   {
-    $this->_init('excellence_hello_test','id');
+    $this->_init('excellence_hello_tbl','id');
   }
   public function loadByTitle($title){
     $table = $this->getMainTable();
@@ -14,14 +14,12 @@ class Test extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     return $id;
   }
 
-  public function joinUs($message)
+  public function joinUs()
   {
-    
     $table = $this->getMainTable();
-    $table2 = $this->getTable('excellence_hello_test1');
+    $table2 = $this->getTable('excellence_hello_tbl');
     $cond = $this->getConnection()->quoteInto('t1.id = t2.id','');
-    $where = $this->getConnection()->quoteInto("message = ?", 'hh');
-    $select = $this->getConnection()->select()->from(array('t1'=>$table))->join(array('t2'=>$table2), $cond)->where($where);
+    $select = $this->getConnection()->select()->from(array('t1'=>$table))->join(array('t2'=>$table2), $cond);
     $collection=$this->getConnection($select)->fetchAll($select);
     return $collection;
 

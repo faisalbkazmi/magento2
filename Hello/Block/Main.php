@@ -5,19 +5,28 @@ class Main extends \Magento\Framework\View\Element\Template
 {   
     protected $registry;
     protected $_testFactory;
+    protected $_test1Factory;
+    protected $collectionData;
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         \Excellence\Hello\Model\TestFactory $testFactory,
-        \Magento\Framework\Registry $registry
-    )
+        \Excellence\Hello\Model\Test1Factory $test1Factory,
+        \Magento\Framework\Registry $registry,
+        array $data = []
+        )
+     
     { 
-        $this->testFactory=$testFactory;
+        $this->_testFactory=$testFactory;
+         $this->_test1Factory=$test1Factory;
          $this->registry = $registry;
-        parent::__construct($context);
+        parent::__construct($context,$data);
     }
     protected function _prepareLayout()
     {
-        $data=$this->testFactory->create();
+        $collectionData = $this->_testFactory->create()->joinData();
+        //print_r($collectionData); die();
+        
+
         $search = $this->registry->registry('searchData');
         $searchTerm = $this->registry->registry('searchTerm');
           if(!empty($search)){
@@ -30,7 +39,8 @@ class Main extends \Magento\Framework\View\Element\Template
             $this->setSearchTerm($searchTerm);
           }
           
-          $this->setCollectModel($collectionData);
+           $this->setCollectModel($collectionData);
+          return $collectionData;
 
     }
     
@@ -48,4 +58,16 @@ class Main extends \Magento\Framework\View\Element\Template
     {
         return $this->_urlBuilder->getUrl("excellence/index/add");
     }
+
+    // public function joinData()
+    // {
+        
+    //     $data = $this->_testFactory->create();
+
+    //     $collectionData = $data->();
+       
+    //     $this->setTestModel($collectionData);
+
+    // }
+
 }

@@ -1,10 +1,9 @@
 <?php
 namespace Excellence\Hello\Model;
 
-use Excellence\Hello\Api\TestRepositoryInterface;
-use Excellence\Hello\Model\TestInterface;
-use Excellence\Hello\Model\TestFactory;
-use Excellence\Hello\Model\ResourceModel\Test\CollectionFactory;
+use Excellence\Hello\Api\Test1RepositoryInterface;
+use Excellence\Hello\Model\Test1Interface;
+use Excellence\Hello\Model\Test1Factory;
 use Excellence\Hello\Model\ResourceModel\Test1\CollectionFactory;
 
 use Magento\Framework\Api\SearchCriteriaInterface;
@@ -12,12 +11,12 @@ use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Api\SearchResultsInterfaceFactory;
-class TestRepository implements \Excellence\Hello\Api\TestRepositoryInterface
+class Test1Repository implements \Excellence\Hello\Api\Test1RepositoryInterface
 {
     protected $objectFactory;
     protected $collectionFactory;
     public function __construct(
-        TestFactory $objectFactory,
+        Test1Factory $objectFactory,
         CollectionFactory $collectionFactory,
         SearchResultsInterfaceFactory $searchResultsFactory       
     )
@@ -27,7 +26,7 @@ class TestRepository implements \Excellence\Hello\Api\TestRepositoryInterface
         $this->searchResultsFactory = $searchResultsFactory;
     }
     
-    public function save(TestInterface $object)
+    public function save(Test1Interface $object)
     {
         try
         {
@@ -50,7 +49,7 @@ class TestRepository implements \Excellence\Hello\Api\TestRepositoryInterface
         return $object;        
     }       
 
-    public function delete(TestInterface $object)
+    public function delete(Test1Interface $object)
     {
         try {
             $object->delete();
