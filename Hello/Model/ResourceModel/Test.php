@@ -14,12 +14,14 @@ class Test extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     return $id;
   }
 
-  public function joinUs()
+  public function joinUs($message)
   {
+    
     $table = $this->getMainTable();
     $table2 = $this->getTable('excellence_hello_test1');
     $cond = $this->getConnection()->quoteInto('t1.id = t2.id','');
-    $select = $this->getConnection()->select()->from(array('t1'=>$table))->join(array('t2'=>$table2), $cond);
+    $where = $this->getConnection()->quoteInto("message = ?", 'hh');
+    $select = $this->getConnection()->select()->from(array('t1'=>$table))->join(array('t2'=>$table2), $cond)->where($where);
     $collection=$this->getConnection($select)->fetchAll($select);
     return $collection;
 

@@ -27,6 +27,7 @@ class Add extends \Magento\Framework\App\Action\Action
          $data1 = $this->_test1Factory->create();
         $post = $this->getRequest()->getPost('data');
         $add=$post['address'];
+        // print_r($add); die();
 
         if(isset($post['submit'])) {
             $data1->saveAddress($add,$id);

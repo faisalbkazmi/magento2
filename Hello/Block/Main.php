@@ -6,6 +6,7 @@ class Main extends \Magento\Framework\View\Element\Template
     protected $registry;
     protected $_testFactory;
     protected $_test1Factory;
+    protected $collectionData;
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         \Excellence\Hello\Model\TestFactory $testFactory,
@@ -19,15 +20,12 @@ class Main extends \Magento\Framework\View\Element\Template
          $this->_test1Factory=$test1Factory;
          $this->registry = $registry;
         parent::__construct($context,$data);
-        $collectionData = $this->_testFactory->create()->joinData();
-         $this->setCollectModel($collectionData);
-        // print_r($collectionData); die();
     }
     protected function _prepareLayout()
     {
-        $data=$this->_testFactory->create();
-
-        $data1=$this->_test1Factory->create();
+        $collectionData = $this->_testFactory->create()->joinData();
+        //print_r($collectionData); die();
+        
 
         $search = $this->registry->registry('searchData');
         $searchTerm = $this->registry->registry('searchTerm');
@@ -41,7 +39,8 @@ class Main extends \Magento\Framework\View\Element\Template
             $this->setSearchTerm($searchTerm);
           }
           
-           $this->setCollectModel1($collectionData);
+           $this->setCollectModel($collectionData);
+          return $collectionData;
 
     }
     

@@ -34,10 +34,9 @@ class Test1 extends \Magento\Framework\Model\AbstractModel implements Test1Inter
         if(!empty($srch)){
             $data = $this->getCollection()
                         ->addFieldToFilter(
-                                array('name', 'message','email'),
+                                array('address'),
                                 array(
-                                    array('like'=>'%'.$srch.'%'), 
-                                    array('like'=>'%'.$srch.'%'),
+                                    
                                     array('like'=>'%'.$srch.'%')
                                 )
                             )
