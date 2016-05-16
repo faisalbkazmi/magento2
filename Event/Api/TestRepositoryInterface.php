@@ -1,7 +1,7 @@
 <?php
-namespace Excellence\Hello\Api;
+namespace Excellence\Event\Api;
 
-use Excellence\Hello\Model\TestInterface;
+use Excellence\Event\Model\TestInterface;
 use Magento\Framework\Api\SearchCriteriaInterface;
 
 interface TestRepositoryInterface 

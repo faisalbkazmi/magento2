@@ -1,18 +1,17 @@
 <?php
-namespace Excellence\Hello\Model;
+namespace Excellence\Event\Model;
 
-use Excellence\Hello\Api\TestRepositoryInterface;
-use Excellence\Hello\Model\TestInterface;
-use Excellence\Hello\Model\TestFactory;
-use Excellence\Hello\Model\ResourceModel\Test\CollectionFactory;
-use Excellence\Hello\Model\ResourceModel\Test1\CollectionFactory;
+use Excellence\Event\Api\TestRepositoryInterface;
+use Excellence\Event\Model\TestInterface;
+use Excellence\Event\Model\TestFactory;
+use Excellence\Event\Model\ResourceModel\Test\CollectionFactory;
 
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Api\SearchResultsInterfaceFactory;
-class TestRepository implements \Excellence\Hello\Api\TestRepositoryInterface
+class TestRepository implements \Excellence\Event\Api\TestRepositoryInterface
 {
     protected $objectFactory;
     protected $collectionFactory;

@@ -1,5 +1,5 @@
 <?php
-namespace Excellence\Hello\Model;
+namespace Excellence\Event\Model;
 interface TestInterface 
 {
 
