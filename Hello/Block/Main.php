@@ -28,6 +28,8 @@ class Main extends \Magento\Framework\View\Element\Template
         
 
         $search = $this->registry->registry('searchData');
+        
+        // print_r($this->registry->registry('searchData')->getData());die();
         $searchTerm = $this->registry->registry('searchTerm');
           if(!empty($search)){
             $collectionData = $search;

@@ -31,36 +31,37 @@ class Test extends \Magento\Framework\Model\AbstractModel implements TestInterfa
         $model->setEmail($data['email']);
         return $model->save();
     }
-    public function searchData($srch)
-    {
-        // if(!empty($srch)){
-            // $data = $this->getResource()->joinUs()
-             print_r( $this->getResource()->joinUs('hh')); die();
-        //                  ->addFieldToFilter(
-        //                         array('name','message','email'),
-        //                         array(
-        //                             array('like'=>'%'.$srch.'%'),
-                                   
-        //                             array('like'=>'%'.$srch.'%'),
-        //                             array('like'=>'%'.$srch.'%')
-        //                         )
-        //                     )
-        //                 ->setOrder('id', 'DESC');
-        //     return $data;
+   //  public function searchData($srch)
+   //  {       
+   //      if(!empty($srch)){
+   //          $data = $this->getResource()->joinUs()
+             
+   //                          ->addFieldToFilter(
+   //                              array('name','address','message','email'),
+   //                              array(
+   //                                  array('like'=>'%'.$srch.'%'),
+   //                                  array('like'=>'%'.$srch.'%'),
+   //                                  array('like'=>'%'.$srch.'%'),
+   //                                  array('like'=>'%'.$srch.'%')
+   //                              )
+   //                          )
+   //                      ->setOrder('id', 'DESC');
+   //          return $data;
               
               
-        // }
-   }
+   //      }
+   // }
     public function getTableData()
     {
-        $data=$this->getResource()->joinUs('hh');
+
+        $data=$this->getResource()->joinUs();
         return $data;        //->setOrder('id', 'DESC');
     }
 
     public function joinData()
      {
 
-         $data=$this->getResource()->joinUs('hh');
+         $data=$this->getResource()->joinUs();
          return $data;
      }
 }

@@ -1,5 +1,6 @@
 <?php
 namespace Excellence\Hello\Model\ResourceModel;
+
 class Test extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
   protected function _construct()
@@ -14,18 +15,46 @@ class Test extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     return $id;
   }
 
-  public function joinUs($message)
+  public function joinUs()
   {
     
     $table = $this->getMainTable();
     $table2 = $this->getTable('excellence_hello_test1');
     $cond = $this->getConnection()->quoteInto('t1.id = t2.id','');
-    $where = $this->getConnection()->quoteInto("message = ?", 'hh');
-    $select = $this->getConnection()->select()->from(array('t1'=>$table))->join(array('t2'=>$table2), $cond)->where($where);
+   
+    // $where = $this->getConnection()->quoteInto("message = ?", 'hh');
+    $select = $this->getConnection()->select()->from(array('t1'=>$table))->join(array('t2'=>$table2), $cond);
     $collection=$this->getConnection($select)->fetchAll($select);
-    return $collection;
+             $collection->addFieldToFilter(
+                                array('name','address','message','email'),
+                                array(
+                                    array('like'=>'%'.$srch.'%'),
+                                    array('like'=>'%'.$srch.'%'),
+                                    array('like'=>'%'.$srch.'%'),
+                                    array('like'=>'%'.$srch.'%')
+                                )
+                            )
+                        ->setOrder('id', 'DESC');
+            return $data;
+              
+              
+        }
 
   }
-}
+
+  // public function joinUs1()
+  // {
+    
+  //   $table = $this->getMainTable();
+  //   $table2 = $this->getTable('excellence_hello_test1');
+  //   $cond = $this->getConnection()->quoteInto('t1.id = t2.id','');
+   
+  //   // $where = $this->getConnection()->quoteInto("message = ?", 'hh');
+  //   $select = $this->getConnection()->select()->from(array('t1'=>$table))->join(array('t2'=>$table2), $cond)-;
+  //   $collection=$this->getConnection($select)->fetchAll($select);
+  //   print_r($collection); die();
+
+  // }
+
 
 

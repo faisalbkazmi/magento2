@@ -29,10 +29,14 @@ class World extends \Magento\Framework\App\Action\Action
         $model = $this->_testFactory->create();
         $model1= $this->_test1Factory->create();
         $post = $this->getRequest()->getPost('data');
+         // print_r($post); die();
         if(isset($post)){
-            $searchData1 = $model1->searchData($post['srch']);
+            // $searchData1 = $model1->searchData($post['srch']);
             $searchData = $model->searchData($post['srch']);  
+             // print_r($searchData); die();
             $this->registry->register('searchData', $searchData);
+            
+           
             
             $this->registry->register('searchTerm', $post['srch']);
         } else{
