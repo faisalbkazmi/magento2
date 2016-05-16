@@ -1,7 +1,7 @@
 <?php
  
  
-namespace Excellence\Event\Observer\Customer;
+namespace Excellence\Hello\Observer\Customer;
  
 use \Psr\Log\LoggerInterface;
 use Magento\Framework\Event\Observer;
@@ -22,7 +22,7 @@ class Authenticated implements ObserverInterface
     public function execute(Observer $observer)
     {
         $customer = $observer->getModel();
-        //print_r($customer->getData());exit;
-        $this->logger->warn('Customer Logged IN:' . $customer->getFirstname());
+        // print_r($customer->getData());exit;
+        $this->logger->warn('Customer Logged IN:' . $customer->getFirstname()." ".$customer->getLastname());
     }
 }

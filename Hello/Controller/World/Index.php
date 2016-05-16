@@ -1,8 +1,8 @@
 <?php
-namespace Excellence\Event\Controller\Event;
+namespace Excellence\Hello\Controller\World;
  
  
-class World extends \Magento\Framework\App\Action\Action
+class Index extends \Magento\Framework\App\Action\Action
 {
     public function __construct(
         \Magento\Framework\App\Action\Context $context)
@@ -12,6 +12,7 @@ class World extends \Magento\Framework\App\Action\Action
      
     public function execute()
     {
-        
+        echo 'this is url /excellence/world';
+        exit;
     } 
 }

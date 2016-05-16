@@ -1,7 +1,7 @@
 <?php
  
  
-namespace Excellence\Event\Observer;
+namespace Excellence\Hello\Observer;
  
 use \Psr\Log\LoggerInterface;
 use Magento\Framework\Event\Observer;
@@ -13,7 +13,6 @@ class Predispatch implements ObserverInterface
     
     protected $logger;
  
-   
     public function __construct(LoggerInterface $logger)
     {
         $this->logger = $logger;
@@ -22,6 +21,6 @@ class Predispatch implements ObserverInterface
     public function execute(Observer $observer)
     {
         $this->logger->warn('Observer Works');
-        exit; 
+        // exit; //uncomment this to make sure event works
     }
 }
