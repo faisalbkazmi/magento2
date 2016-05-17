@@ -5,6 +5,7 @@ use Excellence\Hello\Api\TestRepositoryInterface;
 use Excellence\Hello\Model\TestInterface;
 use Excellence\Hello\Model\TestFactory;
 use Excellence\Hello\Model\ResourceModel\Test\CollectionFactory;
+use Excellence\Hello\Model\ResourceModel\Test1\CollectionFactory;
 
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Exception\CouldNotSaveException;

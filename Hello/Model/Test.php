@@ -31,29 +31,37 @@ class Test extends \Magento\Framework\Model\AbstractModel implements TestInterfa
         $model->setEmail($data['email']);
         return $model->save();
     }
-  public function searchData($srch)
-    {
-       
-        
-        if(!empty($srch)){
-            $data = $this->getCollection()
-                        ->addFieldToFilter(
-                                array('name', 'message','email'),
-                                array(
-                                    array('like'=>'%'.$srch.'%'), 
-                                    array('like'=>'%'.$srch.'%'),
-                                    array('like'=>'%'.$srch.'%')
-                                )
-                            )
-                        ->setOrder('id', 'DESC');
-            return $data;
+   //  public function searchData($srch)
+   //  {       
+   //      if(!empty($srch)){
+   //          $data = $this->getResource()->joinUs()
+             
+   //                          ->addFieldToFilter(
+   //                              array('name','address','message','email'),
+   //                              array(
+   //                                  array('like'=>'%'.$srch.'%'),
+   //                                  array('like'=>'%'.$srch.'%'),
+   //                                  array('like'=>'%'.$srch.'%'),
+   //                                  array('like'=>'%'.$srch.'%')
+   //                              )
+   //                          )
+   //                      ->setOrder('id', 'DESC');
+   //          return $data;
               
               
-        }
-    }
+   //      }
+   // }
     public function getTableData()
     {
-        return $this->getCollection()->setOrder('id', 'DESC');
+
+        $data=$this->getResource()->joinUs();
+        return $data;        //->setOrder('id', 'DESC');
     }
 
+    public function joinData()
+     {
+
+         $data=$this->getResource()->joinUs();
+         return $data;
+     }
 }
