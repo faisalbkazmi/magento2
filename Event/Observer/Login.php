@@ -9,22 +9,25 @@ use Magento\Framework\Event\ObserverInterface;
 class Login implements ObserverInterface
 {
    
-     public function __construct(LoggerInterface $logger)
+     public function __construct(LoggerInterface $logger,
+            \Excellence\Event\Model\TestFactory $testFactory )
     {
         $this->logger = $logger;
+        $this->_testFactory = $testFactory;
     }
  
     public function execute(Observer $observer)
-    {       
-                $customer_email = $observer->getEvent()->getCustomer()->getEmail();
-                // $customer = Mage::getModel("customer/customer");
-                // $customer->setWebsiteId(Mage::app()->getWebsite()->getId());
-                $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-                $orderStatus = $objectManager->create('Magento\Sales\Model\Order')->load($order_id);
-                $customer->loadByEmail($customer_email);
+    {   
+          $test=$this->_testFactory->create();
+          // $customer_id = $observer->getEvent()->getCustomer()->getEmail();  
+          $event = $observer->getEvent();
+          $id = $event->getCustomer()->getId();  
+          $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+          $customer_data = $objectManager->create('Magento\Customer\Model\Customer')->load($id);
+          $customer_email = $customer_data->getEmail();
+          $time=(new \DateTime())->format(\Magento\Framework\Stdlib\DateTime::DATETIME_PHP_FORMAT);
+          $test->saveData($id,$customer_email,$time);
 
-      
-        // $this->logger->warn('hello Observer Works');
-        // exit;
+        
     }
 }
